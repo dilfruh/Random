@@ -2,6 +2,8 @@
 <!-- Buttons on the menu app bar at top -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- If clicked on, this should play a shulk sound -->
     <item
         android:id="@+id/shulky"
         android:icon="@drawable/shulk"

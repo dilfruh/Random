@@ -110,21 +110,44 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // HELPERS
+
+    /**
+     *
+     * @param min
+     * @param max
+     * @return random int between min and max, inclusive of both
+     */
     private int getRandomInt(int min, int max) {
         Random rand = new Random();
         return (rand.nextInt(max - min + 1) + min);
-        // Returns random int between min and max, inclusive of both
     }
 
+    /**
+     *
+     * @param arr any array
+     * @return
+     * @param <T> a random index (int) of the array
+     */
     private <T> int getRandomIndex(T[] arr) {
         return getRandomInt(0, arr.length - 1);
     }
 
+    /**
+     * Format name and index so that user can easily see what and where it is. Ex: Randomly chose Waluigi who is the first character to choose from. Call getDisplayString('Waluigi', 0) because first index is 0 to return 'Waluigi (1)'
+     * @param name
+     * @param index
+     * @return combined string
+     */
     private String getDisplayString(String name, int index) {
         return name+" ("+(index+1)+")";
     }
 
     // SOUNDS
+
+    /**
+     *
+     * @return One of 4 MediaPlayer sounds for shulk
+     */
     private MediaPlayer getShulk() {
         // Get one of the shulk sounds
         MediaPlayer[] shulks = {shulkBack, shulkFeel, shulkKill, shulkTime};
@@ -132,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
         return shulks[index];
     }
 
+    /**
+     *
+     * @param name name of the character whose sound you want to play. Ex: 'Waluigi'
+     * @return MediaPlayer sound for that character
+     */
     private MediaPlayer getSound(String name) {
         if (name=="Waluigi") return wal;
         else if (name=="Wario") return war;
@@ -146,7 +174,15 @@ public class MainActivity extends AppCompatActivity {
         else return null;
     }
 
+    /**
+     * Play up to 4 sounds at once for characters. Plays them in order. Input null for the ones you don't have.
+     * @param s1 1st character name. Ex: 'Waluigi'
+     * @param s2 2nd character name. Ex: 'Waluigi'
+     * @param s3 3rd character name. Ex: 'Waluigi'
+     * @param s4 4th character name. Ex: 'Waluigi'
+     */
     private void playSounds(String s1, String s2, String s3, String s4) {
+        // TODO: could make them input as many as they want. This just felt clearer to use at first
         MediaPlayer m1 = getSound(s1);
         MediaPlayer m2 = getSound(s2);
         MediaPlayer m3 = getSound(s3);
@@ -174,6 +210,9 @@ public class MainActivity extends AppCompatActivity {
         if (players.size() > 0) players.get(0).start();
     }
 
+    /**
+     * Stop playing all sounds. Usually want to call this before playSounds
+     */
     private void stopMediaPlayers() {
         MediaPlayer[] sounds = {shulkBack, shulkFeel, shulkKill, shulkTime, wal, war, car, bow, dai, dk, mar, pea, linky};
         for (MediaPlayer sound : sounds) {
@@ -190,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // BUTTONS
+
+    /**
+     * Get random characters and kart setup for Mario Kart 8 Deluxe
+     * @param view
+     */
     public void kartClicked(View view) {
         stopMediaPlayers();
 
@@ -232,6 +276,11 @@ public class MainActivity extends AppCompatActivity {
 
         playSounds(character1Name, character2Name, null, null);
     }
+
+    /**
+     * Get random characters and board for Fortune Street
+     * @param view
+     */
     public void fortuneClicked(View view) {
         stopMediaPlayers();
 
@@ -273,6 +322,11 @@ public class MainActivity extends AppCompatActivity {
 
         playSounds(character1Name, character2Name, character3Name, character4Name);
     }
+
+    /**
+     * Get random characters and map for Mario Strikers
+     * @param view
+     */
     public void strikersClicked(View view) {
         stopMediaPlayers();
 
@@ -307,6 +361,11 @@ public class MainActivity extends AppCompatActivity {
 
         playSounds(character1Name, sidekick1Name, character2Name, sidekick2Name);
     }
+
+    /**
+     * Get random stuff for Smash Bros Ultimate
+     * @param view
+     */
     public void smashClicked(View view) {
         stopMediaPlayers();
 
@@ -349,6 +408,11 @@ public class MainActivity extends AppCompatActivity {
 
         playSounds(character1Name, character2Name, null, null);
     }
+
+    /**
+     * Get random stuff for Mario Golf Toadstool Tour
+     * @param view
+     */
     public void golfClicked(View view) {
         stopMediaPlayers();
 
@@ -381,6 +445,11 @@ public class MainActivity extends AppCompatActivity {
 
         playSounds(character1Name, character2Name, null, null);
     }
+
+    /**
+     * Get random boards/characters for Mario Party 4 and Superstars
+     * @param view
+     */
     public void partyClicked(View view) {
         stopMediaPlayers();
 
@@ -414,6 +483,10 @@ public class MainActivity extends AppCompatActivity {
         playSounds(superstarsName == "Peach's Birthday Cake" ? "Peach" : null, character1Name, character2Name, null);
     }
 
+    /**
+     * Get random game to play
+     * @param view
+     */
     public void gameClicked(View view) {
         stopMediaPlayers();
 
