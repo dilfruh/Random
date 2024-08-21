@@ -306,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
         }
         String character4Name = characters[character4Index];
 
-        String[][] boards = {{"Castle Trodain", "true"}, {"The Observatory", "true"}, {"Ghost Ship", "true"}, {"Slimenia", "true"}, {"Mt Magmageddon", "false"}, {"Robbin' Hood Ruins", "false"}, {"Mario Stadium", "true"}, {"Starship Mario", "true"}, {"Mario Circuit", "true"}, {"Yoshi's Island", "true"}, {"Delfino Plaza", "false"}, {"Peach's Castle", "true"}, {"Alefgard", "true"}, {"Super Mario Bros.", "true"}, {"Bowser's Castle", "false"}, {"Good Egg Galaxy", "true"}, {"Colossus", "false"}, {"Alltrades Abbey", "false"}};
+        String[][] boards = {{"Castle Trodain", "true"}, {"The Observatory", "maybe"}, {"Ghost Ship", "true"}, {"Slimenia", "true"}, {"Mt Magmageddon", "false"}, {"Robbin' Hood Ruins", "false"}, {"Mario Stadium", "true"}, {"Starship Mario", "maybe"}, {"Mario Circuit", "true"}, {"Yoshi's Island", "true"}, {"Delfino Plaza", "false"}, {"Peach's Castle", "true"}, {"Alefgard", "true"}, {"Super Mario Bros.", "true"}, {"Bowser's Castle", "false"}, {"Good Egg Galaxy", "maybe"}, {"Colossus", "false"}, {"Alltrades Abbey", "maybe"}};
         int boardIndex = getRandomIndex(boards);
         String boardName = boards[boardIndex][0];
         String plot = boards[boardIndex][1];
@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity {
         text3.setText(getDisplayString(character3Name, character3Index));
         text4.setText(getDisplayString(character4Name, character4Index));
         text5.setText(getDisplayString(boardName, boardIndex));
-        text6.setText(plot == "true" ? "A few vacant plots" : "No vacant plots");
+        text6.setText(plot == "true" ? "A few vacant plots" : plot == "false" ? "No vacant plots" : "Maybe add vacant plots");
         text7.setText("");
         text8.setText("");
 
