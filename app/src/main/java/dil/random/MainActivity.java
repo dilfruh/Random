@@ -363,6 +363,37 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Change some smash characters names based on their costumes
+     * @param name
+     * @param costumeIndex
+     * @return the new modified name
+     */
+    private String getNewSmashName(String name, int costumeIndex) {
+        String newName = "";
+        if (name == "Bowser Jr.") {
+            if (costumeIndex == 1) newName = "Larry";
+            else if (costumeIndex == 2) newName = "Roy";
+            else if (costumeIndex == 3) newName = "Wendy";
+            else if (costumeIndex == 4) newName = "Iggy";
+            else if (costumeIndex == 5) newName = "Morton";
+            else if (costumeIndex == 6) newName = "Lemmy";
+            else if (costumeIndex == 7) newName = "Ludwig";
+        }
+        else if (name == "Olimar") {
+            if (costumeIndex > 3) newName = "Alph";
+        }
+        else if (name == "Steve") {
+            if (costumeIndex == 1 || costumeIndex == 3 || costumeIndex == 5) newName = "Alex";
+            else if (costumeIndex == 6) newName = "Zombie";
+            else if (costumeIndex == 7) newName = "Enderman";
+        }
+        else if (name == "Shulk") {
+            if (costumeIndex == 7) newName = "Shirtless!";
+        }
+        return newName;
+    }
+
+    /**
      * Get random stuff for Smash Bros Ultimate
      * @param view
      */
@@ -378,8 +409,12 @@ public class MainActivity extends AppCompatActivity {
         String[] costumes = {"1st Costume", "2nd Costume", "3rd Costume", "4th Costume", "5th Costume", "6th Costume", "7th Costume", "8th Costume"};
         int costume1Index = getRandomIndex(costumes);
         String costume1Name = costumes[costume1Index];
+        String easterEggName1 = getNewSmashName(character1Name, costume1Index);
+        if (easterEggName1 != "") costume1Name += " (" + easterEggName1 + ")";
         int costume2Index = getRandomIndex(costumes);
         String costume2Name = costumes[costume2Index];
+        String easterEggName2 = getNewSmashName(character2Name, costume2Index);
+        if (easterEggName2 != "") costume2Name += " (" + easterEggName2 + ")";
 
         String[] types = {"Time", "Stock", "1-on-1", "5 v 3", "Special Smash"};
         int typeIndex = getRandomIndex(types);
