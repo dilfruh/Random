@@ -416,11 +416,11 @@ public class MainActivity extends AppCompatActivity {
         String easterEggName2 = getNewSmashName(character2Name, costume2Index);
         if (easterEggName2 != "") costume2Name += " (" + easterEggName2 + ")";
 
-        String[] types = {"Time", "Stock", "1-on-1", "5 v 3", "Special Smash"};
+        String[] types = {"Time", "Stock", "1-on-1", "5 v 3", "Special Smash", "Spirit Battle"};
         int typeIndex = getRandomIndex(types);
         String typeName = types[typeIndex];
 
-        String[] stages = {"Regular Stage", "Battlefield and Omega"};
+        String[] stages = {"Regular Stage", "Battlefield and Omega", "Tournament/No Hazards"};
         int stageIndex = getRandomIndex(stages);
         String stageName = stages[stageIndex];
 
