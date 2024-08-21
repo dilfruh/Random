@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         }
-        if (players.size() > 0) players.get(0).start();
+        if (!players.isEmpty()) players.get(0).start();
     }
 
     /**
