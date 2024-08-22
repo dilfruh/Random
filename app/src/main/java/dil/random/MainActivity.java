@@ -416,7 +416,7 @@ public class MainActivity extends AppCompatActivity {
         String easterEggName2 = getNewSmashName(character2Name, costume2Index);
         if (easterEggName2 != "") costume2Name += " (" + easterEggName2 + ")";
 
-        String[] types = {"Time", "Stock", "1-on-1", "5 v 3", "Special Smash", "Spirit Battle"};
+        String[] types = {"Time", "Stock", "1-on-1", "Team", "5 v 3", "Special Smash", "Spirit Battle"};
         int typeIndex = getRandomIndex(types);
         String typeName = types[typeIndex];
 
