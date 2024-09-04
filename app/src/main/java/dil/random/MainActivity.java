@@ -237,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
     public void kartClicked(View view) {
         stopMediaPlayers();
 
-        String[] characters = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Gold/Metal Mario", "Pink Gold Peach", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy", "Morton", "Inkling Girl", "Inkling Boy", "Link", "Male Villager", "Female Villager", "Isabelle", "Mii!!!"};
+        String[] characters = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Birdo", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Petey Piranha", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Gold/Metal Mario", "Pink Gold Peach", "Wiggler", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Kamek", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy", "Morton", "Peachette", "Inkling", "Villager", "Isabelle", "Link", "Diddy Kong", "Funky Kong", "Pauline", "Mii!!!"};
         int character1Index = getRandomIndex(characters);
         String character1Name = characters[character1Index];
         int character2Index = getRandomIndex(characters);
