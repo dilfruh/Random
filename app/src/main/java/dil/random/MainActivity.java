@@ -308,12 +308,13 @@ public class MainActivity extends AppCompatActivity {
         int character1Index = getRandomIndexOddsIncrease(characters, duplicates);
         String character1Name = characters[character1Index];
 
-        int character2Index = getRandomIndexOddsIncrease(characters, duplicates);
+        int character2Index;
         // No duplicate characters
-
-        while (character2Index == character1Index){
+        do {
             character2Index = getRandomIndexOddsIncrease(characters, duplicates);
         }
+        while (character2Index == character1Index);
+
         String character2Name = characters[character2Index];
         character1Name = getKartName(character1Name);
         character2Name = getKartName(character2Name);
@@ -358,23 +359,31 @@ public class MainActivity extends AppCompatActivity {
         String[] characters = {"Mario", "Luigi", "Yoshi", "Birdo", "Donkey Kong", "Diddy Kong", "Slime", "Platypunk", "Alena", "Kiryl", "Wario", "Waluigi", "Daisy", "Peach", "Dragonlord", "Jessica", "Patty", "Stella", "Princessa", "Bianca", "Bowser", "Bowser Jr.", "Toad", "Mii!!!", "Yangus", "Angelo", "Carver"};
         int character1Index = getRandomIndex(characters);
         String character1Name = characters[character1Index];
-        int character2Index = getRandomIndex(characters);
+        int character2Index;
         // No duplicate characters
-        while (character2Index == character1Index){
+        do {
             character2Index = getRandomIndex(characters);
         }
+        while (character2Index == character1Index);
+
         String character2Name = characters[character2Index];
-        int character3Index = getRandomIndex(characters);
+
+        int character3Index;
         // No duplicate characters
-        while (character3Index == character2Index || character3Index == character1Index){
+        do {
             character3Index = getRandomIndex(characters);
         }
+        while (character3Index == character2Index || character3Index == character1Index);
+
         String character3Name = characters[character3Index];
-        int character4Index = getRandomIndex(characters);
+
+        int character4Index;
         // No duplicate characters
-        while (character4Index == character3Index || character4Index == character2Index || character4Index == character1Index){
+        do {
             character4Index = getRandomIndex(characters);
         }
+        while (character4Index == character3Index || character4Index == character2Index || character4Index == character1Index);
+
         String character4Name = characters[character4Index];
 
         String[][] boards = {{"Castle Trodain", "true"}, {"The Observatory", "maybe"}, {"Ghost Ship", "true"}, {"Slimenia", "true"}, {"Mt Magmageddon", "false"}, {"Robbin' Hood Ruins", "false"}, {"Mario Stadium", "true"}, {"Starship Mario", "maybe"}, {"Mario Circuit", "true"}, {"Yoshi's Island", "true"}, {"Delfino Plaza", "false"}, {"Peach's Castle", "true"}, {"Alefgard", "true"}, {"Super Mario Bros.", "true"}, {"Bowser's Castle", "false"}, {"Good Egg Galaxy", "maybe"}, {"Colossus", "false"}, {"Alltrades Abbey", "maybe"}};
@@ -404,11 +413,13 @@ public class MainActivity extends AppCompatActivity {
         String[] characters = {"Mario", "Daisy", "Donkey Kong", "Luigi", "Super Team", "Peach", "Wario", "Waluigi", "Yoshi"};
         int character1Index = getRandomIndex(characters);
         String character1Name = characters[character1Index];
-        int character2Index = getRandomIndex(characters);
+        int character2Index;
         // No duplicate characters
-        while (character2Index == character1Index){
+        do {
             character2Index = getRandomIndex(characters);
         }
+        while (character2Index == character1Index);
+
         String character2Name = characters[character2Index];
 
         String[] sidekicks = {"Toad", "Hammer Bro", "Birdo", "Koopa Troopa"};
@@ -525,11 +536,13 @@ public class MainActivity extends AppCompatActivity {
         String[] characters = {"Mario", "Luigi", "Peach", "Daisy", "Yoshi", "Koopa Troopa", "Donkey Kong", "Diddy Kong", "Wario", "Waluigi", "Birdo", "Bowser", "Bowser Jr.", "Boo!", "Shadow Mario", "Petey Piranha"};
         int character1Index = getRandomIndex(characters);
         String character1Name = characters[character1Index];
-        int character2Index = getRandomIndex(characters);
+        int character2Index;
         // No duplicate characters
-        while (character2Index == character1Index){
+        do {
             character2Index = getRandomIndex(characters);
         }
+        while (character2Index == character1Index);
+
         String character2Name = characters[character2Index];
 
         String[] types = {"Stroke Play", "Match Play", "Doubles", "Ring Attack (Face-Off)", "Ring Attack (Challenge)", "Club Slots (4)", "Club Slots (3)", "Coin Attack (Quick Cash)", "Coin Attack (Cash Cup)", "Skins Match", "Near-Pin", "Side Game: Birdie Challenge", "Side Game: One-on, One-putt"};
@@ -570,11 +583,13 @@ public class MainActivity extends AppCompatActivity {
         String[] characters = {"Mario", "Luigi", "Peach", "Yoshi", "Wario", "Donkey Kong", "Daisy", "Waluigi"};
         int character1Index = getRandomIndex(characters);
         String character1Name = characters[character1Index];
-        int character2Index = getRandomIndex(characters);
+        int character2Index;
         // No duplicate characters
-        while (character2Index == character1Index){
+        do {
             character2Index = getRandomIndex(characters);
         }
+        while (character2Index == character1Index);
+
         String character2Name = characters[character2Index];
 
         text1.setText("Superstars:");
