@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -142,6 +144,44 @@ public class MainActivity extends AppCompatActivity {
         return name+" ("+(index+1)+")";
     }
 
+    /**
+     * takes 2 arrays of the same type and concatenates (combines) them into a new array
+     * @param arr1 first array
+     * @param arr2 second array (same type as first)
+     * @return
+     * @param <T> concatenated array
+     */
+    private <T> T[] concatentateArrays(T[] arr1, T[] arr2) {
+        int length1 = arr1.length;
+        int length2 = arr2.length;
+        int concatLength = length1 + length2;
+
+        // Create a new array with the combined length
+        T[] concatenatedArray = (T[]) Array.newInstance(arr1.getClass().getComponentType(), concatLength);
+
+        // Copy the elements from both arrays into the new array
+        System.arraycopy(arr1, 0, concatenatedArray, 0, length1);
+        System.arraycopy(arr2, 0, concatenatedArray, length1, length2);
+
+        return concatenatedArray;
+    }
+
+    /**
+     * Increase the odds of something getting picked by adding it to the arrDuplicates arrays. This basically chooses from a combined array of the 2 inputted while keeping the original index. Example: suppose you have 2 items "a" and "b". getRandomIndex of array of {"a", "b"} returns equal odds for a and b, but you want a to be twice as likely. getRandomIndex of array of {"a", "a", "b"} achieves this but now b's index is wrong. Use getRandomIndexOddsIncrease({"a", "b"}, {"a"}) to achieve a being twice as likely, but you still get index of 1 for a and 2 for b.
+     * @param arr original list of item
+     * @param arrDuplicates the items you want to increase
+     * @return
+     * @param <T> the index of the item from the original list
+     */
+    private <T> int getRandomIndexOddsIncrease(T[] arr, T[] arrDuplicates) {
+        T[] arrOddsIncreased = concatentateArrays(arr, arrDuplicates);
+        // Get an item based on those odds
+        int oddsIndex = getRandomIndex(arrOddsIncreased);
+        T item = arrOddsIncreased[oddsIndex];
+        int originalArrIndex = Arrays.asList(arr).indexOf(item); // binarySearch didn't work
+        return originalArrIndex;
+    }
+
     // SOUNDS
 
     /**
@@ -230,6 +270,29 @@ public class MainActivity extends AppCompatActivity {
 
     // BUTTONS
 
+    private String getKartName(String name) {
+        String info = "";
+        if (name == "Birdo" || name == "Yoshi" || name == "Shy Guy") {
+            // Colors are the same for all 3, but order can be different
+            String original = name == "Birdo" ? "Pink" : name == "Yoshi" ? "Green" : "Red";
+            String red = name == "Shy Guy" ? "Green" : "Red";
+            String pink = name == "Birdo" ? "Green" : "Pink";
+            String[] skins = {original, "Light-blue", "Black", red, "Yellow", "White", "Blue", pink, "Orange"};
+            int index = getRandomIndex(skins);
+            info = getDisplayString(skins[index], index);
+        }
+        else if (name == "Inkling") {
+            String[] skins = {"Girl Orange", "Girl Green", "Girl Pink", "Boy Blue", "Boy Purple", "Boy Teal"};
+            int index = getRandomIndex(skins);
+            info = getDisplayString(skins[index], index);
+        }
+        else if (name == "Gold/Metal Mario") info = getRandomInt(1,2) == 1 ? "Gold" : "Metal";
+        else if (name == "Link") info = getRandomInt(1,2) == 1 ? "1st Costume" : "2nd Costume";
+        else if (name == "Villager") info = getRandomInt(1,2) == 1 ? "Male" : "Female";
+        else info = "";
+        return info == "" ? name : name + " (" + info + ")";
+    }
+
     /**
      * Get random characters and kart setup for Mario Kart 8 Deluxe
      * @param view
@@ -238,14 +301,22 @@ public class MainActivity extends AppCompatActivity {
         stopMediaPlayers();
 
         String[] characters = {"Mario", "Luigi", "Peach", "Daisy", "Rosalina", "Tanooki Mario", "Cat Peach", "Birdo", "Yoshi", "Toad", "Koopa Troopa", "Shy Guy", "Lakitu", "Toadette", "King Boo", "Petey Piranha", "Baby Mario", "Baby Luigi", "Baby Peach", "Baby Daisy", "Baby Rosalina", "Gold/Metal Mario", "Pink Gold Peach", "Wiggler", "Wario", "Waluigi", "Donkey Kong", "Bowser", "Dry Bones", "Bowser Jr.", "Dry Bowser", "Kamek", "Lemmy", "Larry", "Wendy", "Ludwig", "Iggy", "Roy", "Morton", "Peachette", "Inkling", "Villager", "Isabelle", "Link", "Diddy Kong", "Funky Kong", "Pauline", "Mii!!!"};
-        int character1Index = getRandomIndex(characters);
+
+        // Let's double the odds of some characters since they have multiple skins
+        String[] duplicates = {"Inkling", "Villager", "Birdo", "Yoshi", "Shy Guy"};
+
+        int character1Index = getRandomIndexOddsIncrease(characters, duplicates);
         String character1Name = characters[character1Index];
-        int character2Index = getRandomIndex(characters);
+
+        int character2Index = getRandomIndexOddsIncrease(characters, duplicates);
         // No duplicate characters
+
         while (character2Index == character1Index){
-            character2Index = getRandomIndex(characters);
+            character2Index = getRandomIndexOddsIncrease(characters, duplicates);
         }
         String character2Name = characters[character2Index];
+        character1Name = getKartName(character1Name);
+        character2Name = getKartName(character2Name);
 
         String[] karts = {"Standard Kart", "Pipe Frame", "Mach 8", "Steel Driver", "Cat Cruiser", "Circuit Special", "Tri-Speeder", "Badwagon", "Prancer", "Biddybuggy", "Landship", "Sneeker", "Sports Coupe", "Gold Standard", "GLA", "W 25 Silver Arrow", "300 SL Roadster", "Blue Falcon", "Tanooki Kart", "B Dasher", "Streetle", "P-Wing", "Koopa Clown", "Standard Bike", "Comet", "Sport Bike", "The Duke", "Flame Rider", "Varmint", "Mr. Scooty", "Jet Bike", "Yoshi Bike", "Master Cycle", "Master Cycle Zero", "City Tripper", "Standard ATV", "Wild Wiggler", "Teddy Buggy", "Bone Rattler", "Splat Buggy", "Inkstriker"};
         int kart1Index = getRandomIndex(karts);
