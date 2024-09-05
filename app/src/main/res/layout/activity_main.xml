@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:textSize="22sp"
+        android:textSize="21sp"
         android:text="Hello World!"
         android:textColor="#000000" />
     <TextView
@@ -27,7 +27,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text1"
-        android:textSize="22sp"
+        android:textSize="21sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text3"
@@ -36,7 +36,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text2"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text4"
@@ -45,7 +45,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text3"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text5"
@@ -54,7 +54,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text4"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text6"
@@ -63,7 +63,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text5"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text7"
@@ -72,7 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text6"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <TextView
         android:id="@+id/text8"
@@ -81,13 +81,13 @@
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
         android:layout_below="@id/text7"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textColor="#000000" />
     <!-- Button for Fortune Street -->
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Fortune Street"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -104,7 +104,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Mario Kart"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -121,7 +121,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Strikers"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -138,7 +138,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Smash"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -155,7 +155,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Golf"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -173,7 +173,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Party"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
@@ -190,7 +190,7 @@
     <Button
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:text="Game"
         android:textColor="#FFFFFF"
         android:paddingLeft="15dp"
