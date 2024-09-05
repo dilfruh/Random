@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
     private MediaPlayer getShulk() {
         // Get one of the shulk sounds
         MediaPlayer[] shulks = {shulkBack, shulkFeel, shulkKill, shulkTime};
-        int index = getRandomInt(0, shulks.length-1);
+        int index = getRandomIndex(shulks);
         return shulks[index];
     }
 
