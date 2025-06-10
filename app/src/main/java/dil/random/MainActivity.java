@@ -514,6 +514,10 @@ public class MainActivity extends AppCompatActivity {
     public void partyClicked(View view) {
         stopMediaPlayers();
 
+        String[] jamboreeBoards = {"Mega Wiggler's Tree Party", "Rainbow Galleria", "Goomba Lagoon", "Roll 'em Raceway", "Western Land", "Mario's Rainbow Castle", "King Bowser's Keep"};
+        int jamboreeIndex = getRandomIndex(jamboreeBoards);
+        String jamboreeName = jamboreeBoards[jamboreeIndex];
+
         String[] superstarsBoards = {"Yoshi's Tropical Island", "Space Land", "Peach's Birthday Cake", "Woody Woods", "Horror Land"};
         int superstarsIndex = getRandomIndex(superstarsBoards);
         String superstarsName = superstarsBoards[superstarsIndex];
@@ -534,14 +538,14 @@ public class MainActivity extends AppCompatActivity {
 
         String character2Name = characters[character2Index];
 
-        text1.setText("Superstars:");
-        text2.setText(superstarsName);
-        text3.setText("");
-        text4.setText("Party 4:");
-        text5.setText(party4BoardName);
-        text6.setText(character1Name);
-        text7.setText(character2Name);
-        text8.setText("");
+        text1.setText("JAMBOREE:");
+        text2.setText(jamboreeName);
+        text3.setText("SUPERSTARS:");
+        text4.setText(superstarsName);
+        text5.setText("PARTY 4:");
+        text6.setText(party4BoardName);
+        text7.setText(character1Name);
+        text8.setText(character2Name);
 
         playSounds(superstarsName == "Peach's Birthday Cake" ? "Peach" : null, character1Name, character2Name, null);
     }
@@ -553,9 +557,16 @@ public class MainActivity extends AppCompatActivity {
     public void gameClicked(View view) {
         stopMediaPlayers();
 
-        String[] games = {"Sacrifice Darren to the Sun God", "Rocket League", "Fall Guys", "Fortune Street", "Smash", "Mario Kart", "Mario Party Superstars", "Mario Party 4", "Mario Golf", "Mario Tennis", "Original Strikers", "Strikers: Battle League", "Mario Superstar Baseball"};
+        String[] games = {"Sacrifice Darren to the Sun God", "Rocket League", "Fall Guys", "Fortune Street", "Smash", "Mario Kart", "New Mario Party", "Mario Party 4", "Mario Golf", "Mario Tennis", "Original Strikers", "Strikers: Battle League", "Mario Superstar Baseball", "2K", "Madden", "Terraforming Mars"};
         int gameIndex = getRandomIndex(games);
         String gameName = games[gameIndex];
+
+        // Don't want to give too much weight to mario party games, so combined superstars and jamboree, now choose between them
+        if (gameName == "New Mario Party") {
+            String[] newPartyGames = {"Mario Party Superstars", "Super Mario Party Jamboree"};
+            int partyIndex = getRandomIndex(newPartyGames);
+            gameName = newPartyGames[partyIndex];
+        }
 
         text1.setText(gameName);
         text2.setText("");
