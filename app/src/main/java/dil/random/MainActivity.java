@@ -538,11 +538,11 @@ public class MainActivity extends AppCompatActivity {
 
         String character2Name = characters[character2Index];
 
-        text1.setText("Jamboree: " + jamboreeName);
-        text2.setText("");
-        text3.setText("Superstars: " + superstarsName);
-        text4.setText("");
-        text5.setText("Party 4:");
+        text1.setText("JAMBOREE:");
+        text2.setText(jamboreeName);
+        text3.setText("SUPERSTARS:");
+        text4.setText(superstarsName);
+        text5.setText("PARTY 4:");
         text6.setText(party4BoardName);
         text7.setText(character1Name);
         text8.setText(character2Name);
