@@ -557,7 +557,7 @@ public class MainActivity extends AppCompatActivity {
     public void gameClicked(View view) {
         stopMediaPlayers();
 
-        String[] games = {"Sacrifice Darren to the Sun God", "Rocket League", "Fall Guys", "Fortune Street", "Smash", "Mario Kart", "New Mario Party", "Mario Party 4", "Mario Golf", "Mario Tennis", "Original Strikers", "Strikers: Battle League", "Mario Superstar Baseball", "2K", "Madden"};
+        String[] games = {"Sacrifice Darren to the Sun God", "Rocket League", "Fall Guys", "Fortune Street", "Smash", "Mario Kart", "New Mario Party", "Mario Party 4", "Mario Golf", "Mario Tennis", "Original Strikers", "Strikers: Battle League", "Mario Superstar Baseball", "2K", "Madden", "Terraforming Mars"};
         int gameIndex = getRandomIndex(games);
         String gameName = games[gameIndex];
 
