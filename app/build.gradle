@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "dil.random"
         minSdkVersion 29
-        targetSdkVersion 34
+        targetSdkVersion 34 // changing this affects orientation lock, status bar color, and layout
         versionCode 6
         versionName "2.3.1"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
